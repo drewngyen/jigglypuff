@@ -91,9 +91,13 @@ app.get(
 
 // callback method for data (redirect), must be configured on Google Console.
 // needs to be configured soon
-app.get("/auth/google/callback", passport.authenticate("google"), (req, res) => {
-  res.redirect("http://localhost:8080");
-});
+app.get(
+  "/auth/google/callback",
+  passport.authenticate("google"),
+  (req, res) => {
+    res.redirect("http://localhost:8080");
+  }
+);
 
 app.get("/api/current_user", (req, res) => {
   console.log('In server - fetching user ID: ', req.user.rows[0].user_id);
